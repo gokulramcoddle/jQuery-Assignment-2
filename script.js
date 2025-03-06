@@ -42,9 +42,12 @@ $(document).ready(()=>{
         valid=false;
     }
 
-    if(phno==="" || phno.length !=10){
-        $("#phnumbererror").text("Enter valid 10 number!");
+    if(phno==="" || phno.length <10){
+        $("#phnumbererror").text("Enter a valid 10-digit numeric phone number!");
         valid=false;
+    }
+    if(isNaN(phno)){
+        $("#phnumbererror").text("Only numeric characters are allowed!!")
     }
 
     if(pass ==="" || pass.length < 6){
@@ -52,8 +55,13 @@ $(document).ready(()=>{
         valid=false;
     }
 
-    if(confirmpass !== pass){
+    if(confirmpass !== pass || confirmpass==""){
         $("#confirmpassworderror").text("Password not matching please enter same password to confirm !");
+        valid=false;
+    }
+
+    if(bio == ""){
+        $("#bioerror").text("Please fill this column !");
         valid=false;
     }
 
