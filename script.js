@@ -17,27 +17,33 @@ $(document).ready(()=>{
     let confirmpass=$("#confirmpass").val();
     let bio=$("#bio").val();
 
+    let today = new Date().toISOString().split("T")[0];
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     if(fn===""){
         $("#fnameerror").text("Enter first name!");
         valid=false;
     }
 
     if(ln===""){
-        $("#lnameerror").text("enter last name!");
+        $("#lnameerror").text("Enter last name!");
         valid=false;
     }
 
     if(dob===""){
         $("#doberror").text("Select DOB !");
         valid=false;
-    }
+    }else if (dob > today) {
+            $("#doberror").text("DOB cannot be a future date!");
+            valid = false;
+        }
 
     if(gender===""){
         $("#gendererror").text("Select gender !");
         valid=false;
     }
 
-    if(email===""){
+    if(!emailPattern.test(email)){
         $("#emailerror").text("Enter valid mail !");
         valid=false;
     }
@@ -56,7 +62,7 @@ $(document).ready(()=>{
     }
 
     if(confirmpass !== pass || confirmpass==""){
-        $("#confirmpassworderror").text("Password not matching please enter same password to confirm !");
+        $("#confirmpassworderror").text("Password not matching enter same password to confirm !");
         valid=false;
     }
 
@@ -86,6 +92,16 @@ $("#loaddata").click(()=>{
     $.ajax({
         url:"./data.json",
         success:(data)=>{
+            let tableHead = `
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                `;
             let tablebody="";
             data.forEach(user=>{
                 tablebody+=
@@ -96,7 +112,7 @@ $("#loaddata").click(()=>{
                  <td>${user.phone}</td>
                  </tr>`;
             });
-            $("#tabledata").html(tablebody);
+            $("#dataTable").html(tableHead + `<tbody> ${tablebody} </tbody>`);
         }, 
         error : ()=>{
             alert("Error occured or Please run in live server !!");
