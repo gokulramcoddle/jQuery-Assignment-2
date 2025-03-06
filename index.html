@@ -9,20 +9,20 @@
   </head>
   <body>
     <!-------------------------------------Q1-------------------------------------- -->
-    <h2 class="qtitle">Question 1</h2>
+    <h2 class="Qtitle">Question 1</h2>
     <h2>Registration form:</h2>
     <form id="form">
       <label>First Name:</label>
-      <input type="text" id="fname" />
-      <div class="error" id="fnameerror"></div>
+      <input type="text" id="firstName" />
+      <div class="error" id="firstName-Error"></div>
 
       <label>Last Name:</label>
-      <input type="text" id="lname" />
-      <div class="error" id="lnameerror"></div>
+      <input type="text" id="lastName" />
+      <div class="error" id="lastName-Error"></div>
 
       <label>Date of Birth:</label>
       <input type="date" id="dob" />
-      <div class="error" id="doberror"></div>
+      <div class="error" id="dob-Error"></div>
 
       <label>Gender:</label>
       <select id="gender">
@@ -30,27 +30,27 @@
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>
-      <div class="error" id="gendererror"></div>
+      <div class="error" id="gender-Error"></div>
 
       <label>Email:</label>
       <input type="email" id="email"/>
-      <div class="error" id="emailerror"></div>
+      <div class="error" id="email-Error"></div>
 
       <label>Phone number:</label>
-      <input type="text" id="phnumber" />
-      <div class="error" id="phnumbererror"></div>
+      <input type="text" id="phoneNumber" />
+      <div class="error" id="phoneNumber-Error"></div>
 
       <label>Password:</label>
       <input type="password" id="pass" />
-      <div class="error" id="passworderror"></div>
+      <div class="error" id="password-Error"></div>
 
       <label>Confirm Password:</label>
       <input type="password" id="confirmpass" />
-      <div class="error" id="confirmpassworderror"></div>
+      <div class="error" id="confirmPassword-Error"></div>
 
       <label>Bio:</label>
       <textarea id="bio"></textarea>
-      <div class="error" id="bioerror"></div>
+      <div class="error" id="bio-Error"></div>
 
       <button type="submit">Submit</button>
       <h2>Submitted Data:</h2>
@@ -58,9 +58,9 @@
     </form>
 
     <!-- -------------------------------------Q2-------------------------------------- -->
-    <h2 class="qtitle">Question-2</h2>
+    <h2 class="Qtitle">Question-2</h2>
     <h2>Data from JSON</h2>
-    <button id="loaddata">Load</button>
+    <button id="loadData">Load</button>
     <table id="dataTable"></table>
   </body>
   <script src="script.js"></script>

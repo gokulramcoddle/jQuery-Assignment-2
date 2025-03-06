@@ -7,78 +7,78 @@ $(document).ready(()=>{
 
     $(".error").text("");
 
-    let fn=$("#fname").val().trim();
-    let ln=$("#lname").val().trim();
+    let firstName=$("#firstName").val().trim();
+    let lastName=$("#lastName").val().trim();
     let dob=$("#dob").val();
     let gender=$("#gender").val();
     let email=$("#email").val().trim();
-    let phno=$("#phnumber").val().trim();
+    let phone=$("#phoneNumber").val().trim();
     let pass=$("#pass").val();
-    let confirmpass=$("#confirmpass").val();
+    let confirmPass=$("#confirmpass").val();
     let bio=$("#bio").val();
 
     let today = new Date().toISOString().split("T")[0];
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if(fn===""){
-        $("#fnameerror").text("Enter first name!");
+    if(firstName===""){
+        $("#firstName-Error").text("Enter first name!");
         valid=false;
     }
 
-    if(ln===""){
-        $("#lnameerror").text("Enter last name!");
+    if(lastName===""){
+        $("#lastName-Error").text("Enter last name!");
         valid=false;
     }
 
     if(dob===""){
-        $("#doberror").text("Select DOB !");
+        $("#dob-Error").text("Select DOB !");
         valid=false;
     }else if (dob > today) {
-            $("#doberror").text("DOB cannot be a future date!");
+            $("#dob-Error").text("DOB cannot be a future date!");
             valid = false;
         }
 
     if(gender===""){
-        $("#gendererror").text("Select gender !");
+        $("#gender-Error").text("Select gender !");
         valid=false;
     }
 
     if(!emailPattern.test(email)){
-        $("#emailerror").text("Enter valid mail !");
+        $("#email-Error").text("Enter valid mail !");
         valid=false;
     }
 
-    if(phno==="" || phno.length <10){
-        $("#phnumbererror").text("Enter a valid 10-digit numeric phone number!");
+    if(phone==="" || phone.length <10){
+        $("#phoneNumber-Error").text("Enter a valid 10-digit numeric phone number!");
         valid=false;
     }
-    if(isNaN(phno)){
-        $("#phnumbererror").text("Only numeric characters are allowed!!")
+    if(isNaN(phone)){
+        $("#phoneNumber-Error").text("Only numeric characters are allowed!!")
     }
 
     if(pass ==="" || pass.length < 6){
-        $("#passworderror").text("Enter password atleast 6 characters!");
+        $("#password-Error").text("Enter password atleast 6 characters!");
         valid=false;
     }
 
-    if(confirmpass !== pass || confirmpass==""){
-        $("#confirmpassworderror").text("Password not matching enter same password to confirm !");
+    if(confirmPass !== pass || confirmPass==""){
+        $("#confirmPassword-Error").text("Password not matching enter same password to confirm !");
         valid=false;
     }
 
     if(bio == ""){
-        $("#bioerror").text("Please fill this column !");
+        $("#bio-Error").text("Please fill this column !");
         valid=false;
     }
 
     if(valid){
         $(".submitted-data").html(`
-            <p><strong>First Name:</strong> ${fn}</p>
-            <p><strong>Last Name:</strong> ${ln}</p>
+            <p><strong>First Name:</strong> ${firstName}</p>
+            <p><strong>Last Name:</strong> ${lastName}</p>
             <p><strong>DOB:</strong> ${dob}</p>
             <p><strong>Gender:</strong> ${gender}</p>
             <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phno}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
             <p><strong>Bio:</strong> ${bio}</p>
         `);
 
@@ -88,7 +88,7 @@ $(document).ready(()=>{
 
 //  --------------------------------------------------Q2------------------------------------------------
 
-$("#loaddata").click(()=>{
+$("#loadData").click(()=>{
     $.ajax({
         url:"./data.json",
         success:(data)=>{
@@ -102,9 +102,9 @@ $("#loaddata").click(()=>{
                         </tr>
                     </thead>
                 `;
-            let tablebody="";
+            let tableBody="";
             data.forEach(user=>{
-                tablebody+=
+                tableBody+=
                 `<tr>
                  <td>${user.id}</td>
                  <td>${user.name}</td>
@@ -112,7 +112,7 @@ $("#loaddata").click(()=>{
                  <td>${user.phone}</td>
                  </tr>`;
             });
-            $("#dataTable").html(tableHead + `<tbody> ${tablebody} </tbody>`);
+            $("#dataTable").html(tableHead + `<tbody> ${tableBody} </tbody>`);
         }, 
         error : ()=>{
             alert("Error occured or Please run in live server !!");
