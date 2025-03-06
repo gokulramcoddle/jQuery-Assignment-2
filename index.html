@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Assignment-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-------------------------------------Q1-------------------------------------- -->
+    <h2 class="qtitle">Question 1</h2>
+    <h2>Registration form:</h2>
+    <form id="form">
+      <label>First Name:</label>
+      <input type="text" id="fname" />
+      <div class="error" id="fnameerror"></div>
+
+      <label>Last Name:</label>
+      <input type="text" id="lname" />
+      <div class="error" id="lnameerror"></div>
+
+      <label>Date of Birth:</label>
+      <input type="date" id="dob" />
+      <div class="error" id="doberror"></div>
+
+      <label>Gender:</label>
+      <select id="gender">
+        <option value="">--Select Gender--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <div class="error" id="gendererror"></div>
+
+      <label>Email:</label>
+      <input type="email" id="email" />
+      <div class="error" id="emailerror"></div>
+
+      <label>Phone number:</label>
+      <input type="number" id="phnumber" />
+      <div class="error" id="phnumbererror"></div>
+
+      <label>Password:</label>
+      <input type="password" id="pass" />
+      <div class="error" id="passworderror"></div>
+
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmpass" />
+      <div class="error" id="confirmpassworderror"></div>
+
+      <label>Bio:</label>
+      <textarea id="bio"></textarea>
+
+      <button type="submit">Submit</button>
+      <h2>Submitted Data:</h2>
+      <div class="submitted-data"></div>
+    </form>
+
+    <!-- -------------------------------------Q2-------------------------------------- -->
+    <h2 class="qtitle">Question-2</h2>
+    <h2>Data from JSON</h2>
+    <button id="loaddata">Load</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody id="tabledata"></tbody>
+    </table>
+  </body>
+  <script src="script.js"></script>
+</html>
